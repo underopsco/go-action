@@ -1,0 +1,31 @@
+name: Examples
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - id: hello-world
+        uses: ./examples/hello_world
+        with:
+          who-to-greet: go-action
+
+      - run: echo "Random Number = ${{ steps.hello-world.outputs.random-number }}"
+
+  hello-world-bind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - id: hello-world
+        uses: ./examples/hello_world_bind
+        with:
+          who-to-greet: go-action
+
+      - run: echo "Random Number = ${{ steps.hello-world.outputs.random-number }}"
