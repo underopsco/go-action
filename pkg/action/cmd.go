@@ -3,6 +3,7 @@ package action
 import (
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -41,6 +42,15 @@ func GetInput(name string) string {
 	s = strings.ReplaceAll(s, " ", "_")
 
 	return os.Getenv(s)
+}
+
+func GetInputInt(name string) int64 {
+	val, err := strconv.ParseInt(GetInput(name), 10, 0)
+	if err != nil {
+		panic(err)
+	}
+
+	return val
 }
 
 func GetState(name string) string {

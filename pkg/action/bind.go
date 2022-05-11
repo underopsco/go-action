@@ -8,7 +8,7 @@ import (
 
 const (
 	inputField  fieldKind = "input"
-	outputField           = "output"
+	outputField fieldKind = "output"
 )
 
 type fieldKind string
@@ -22,7 +22,16 @@ func bindInputs(i interface{}) error {
 	return visitFields(i, func(f reflect.Value, tag tagParts) error {
 		switch tag.kind {
 		case inputField:
-			f.SetString(GetInput(tag.name))
+			switch f.Kind() {
+			case reflect.Int:
+				f.SetInt(GetInputInt(tag.name))
+
+			case reflect.String:
+				f.SetString(GetInput(tag.name))
+
+			default:
+				return fmt.Errorf("unknown type '%v'", f.Kind())
+			}
 		}
 
 		return nil
