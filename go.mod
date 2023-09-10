@@ -1,6 +1,6 @@
 module github.com/crqra/go-action
 
-go 1.17
+go 1.21
 
 require (
 	github.com/google/go-github/v42 v42.0.0
