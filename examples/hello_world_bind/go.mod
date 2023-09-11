@@ -1,10 +1,10 @@
-module github.com/crqra/go-action/examples/hello_world
+module github.com/wtfiscrq/go-action/examples/hello_world
 
 go 1.17
 
-replace github.com/crqra/go-action => ../../
+replace github.com/wtfiscrq/go-action => ../../
 
-require github.com/crqra/go-action v0.0.0-20220215115724-031faebab42a
+require github.com/wtfiscrq/go-action v0.0.0-20220215115724-031faebab42a
 
 require (
 	github.com/golang/protobuf v1.4.2 // indirect

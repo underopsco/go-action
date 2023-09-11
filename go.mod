@@ -1,4 +1,4 @@
-module github.com/crqra/go-action
+module github.com/wtfiscrq/go-action
 
 go 1.21
 
