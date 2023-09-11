@@ -3,7 +3,7 @@ package action
 import (
 	"context"
 
-	"github.com/google/go-github/v42/github"
+	"github.com/google/go-github/v55/github"
 	"golang.org/x/oauth2"
 )
 
