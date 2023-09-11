@@ -15,6 +15,10 @@ outputs:
 runs:
   using: composite
   steps:
+    - uses: actions/setup-go@v2
+      with:
+        go-version: 1.21
+
     - id: action
       run: go run main.go -inputs '${{ toJSON(inputs) }}'
       working-directory: ${{ github.action_path }}
