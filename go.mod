@@ -1,6 +1,6 @@
 module github.com/underopsco/go-action
 
-go 1.21
+go 1.21.0
 
 require (
 	github.com/google/go-github/v55 v55.0.0
