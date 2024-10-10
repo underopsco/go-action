@@ -1,4 +1,4 @@
-module github.com/wtfiscrq/go-action
+module github.com/underopsco/go-action
 
 go 1.21
 

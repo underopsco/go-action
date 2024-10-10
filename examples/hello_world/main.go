@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 
-	"github.com/wtfiscrq/go-action/pkg/action"
+	"github.com/underopsco/go-action/pkg/action"
 )
 
 func main() {
