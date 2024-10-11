@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"log/slog"
 	"os"
 	"strings"
 )
@@ -38,6 +39,7 @@ func loadInputsFromFlag() error {
 	raw := flag.String("inputs", "{}", "GitHub Action inputs")
 	flag.Parse()
 	if raw == nil {
+		slog.Debug("no inputs provided")
 		return nil
 	}
 
@@ -45,6 +47,7 @@ func loadInputsFromFlag() error {
 	if err := json.Unmarshal([]byte(*raw), &inputs); err != nil {
 		return err
 	}
+	slog.Debug("inputs flag provided", slog.Any("value", inputs))
 
 	for k, v := range inputs {
 		envKey := fmt.Sprintf("INPUT_%s", strings.ToUpper(strings.Replace(k, " ", "_", -1)))
