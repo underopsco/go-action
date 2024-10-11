@@ -35,15 +35,13 @@ func Execute(a Action) error {
 // workaround for composite actions
 // see https://github.com/actions/runner/issues/665
 func loadInputsFromFlag() error {
-	if f := flag.Lookup("inputs"); f != nil {
+	raw := flag.String("inputs", "{}", "GitHub Action inputs")
+	flag.Parse()
+	if raw == nil {
 		return nil
 	}
 
 	inputs := map[string]string{}
-	raw := flag.String("inputs", "{}", "GitHub Action inputs")
-
-	flag.Parse()
-
 	if err := json.Unmarshal([]byte(*raw), &inputs); err != nil {
 		return err
 	}
