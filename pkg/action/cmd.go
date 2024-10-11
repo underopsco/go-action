@@ -75,7 +75,7 @@ func SetFailed(err error, opts map[string]string) {
 }
 
 func SetOutput(name, value string) {
-	cmd("set-output", value, map[string]string{"name": name})
+	write("GITHUB_OUTPUT", fmt.Sprintf("%s=%s", name, value))
 }
 
 func SetSecret(secret string) {
@@ -91,4 +91,16 @@ func cmd(name, value string, opts map[string]string) {
 	}
 
 	fmt.Printf(fmtStr, name, strings.Join(parsedOpts, ","), value)
+}
+
+func write(filename, value string) {
+	f, err := os.OpenFile(os.Getenv(filename), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
+
+	if _, err := f.WriteString(value); err != nil {
+		panic(err)
+	}
 }
