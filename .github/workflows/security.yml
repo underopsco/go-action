@@ -49,7 +49,7 @@ jobs:
         id: app-token
         with:
           app-id: ${{ vars.SECURITY_APP_ID }}
-          private-key: ${{ secrets.SECURITY_APP_PRIVATE_KEY }}
+          private-key: "${{ secrets.SECURITY_APP_PRIVATE_KEY }}"
 
       - id: security-sla
         uses: underopsco/enforce-security-sla-action@main
