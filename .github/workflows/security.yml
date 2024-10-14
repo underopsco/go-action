@@ -50,3 +50,5 @@ jobs:
 
       - id: security-sla
         uses: underopsco/enforce-security-sla-action@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
