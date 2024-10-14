@@ -23,6 +23,9 @@ func bindInputs(i interface{}) error {
 		switch tag.kind {
 		case inputField:
 			switch f.Kind() {
+			case reflect.Bool:
+				f.SetBool(GetInputBool(tag.name))
+
 			case reflect.Int:
 				f.SetInt(GetInputInt(tag.name))
 

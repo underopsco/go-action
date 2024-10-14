@@ -44,6 +44,15 @@ func GetInput(name string) string {
 	return os.Getenv(s)
 }
 
+func GetInputBool(name string) bool {
+	val, err := strconv.ParseBool(GetInput(name))
+	if err != nil {
+		panic(err)
+	}
+
+	return val
+}
+
 func GetInputInt(name string) int64 {
 	val, err := strconv.ParseInt(GetInput(name), 10, 0)
 	if err != nil {
