@@ -42,9 +42,7 @@ jobs:
     name: Enforce Security SLA
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-      security-events: read
+    permissions: read-all
 
     steps:
       - uses: actions/checkout@v2
