@@ -3,6 +3,7 @@ package action
 import (
 	"os"
 	"strconv"
+	"strings"
 )
 
 // https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
@@ -79,6 +80,9 @@ type GitHubContext struct {
 
 	// The owner and repository name
 	Repository string
+
+	// The repository name
+	RepositoryName string
 
 	// The repository owner's name
 	RepositoryOwner string
@@ -169,6 +173,10 @@ var Context = &GitHubContext{
 	RunnerTemp:       os.Getenv("RUNNER_TEMP"),
 	RunnerToolCache:  os.Getenv("RUNNER_TOOL_CACHE"),
 	RunnerDebug:      boolEnv("RUNNER_DEBUG"),
+}
+
+func init() {
+	Context.RepositoryName = strings.Split(Context.Repository, "/")[1]
 }
 
 func boolEnv(key string) bool {
