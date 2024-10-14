@@ -12,6 +12,7 @@ jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
+
     permissions:
       actions: read
       contents: read
@@ -37,8 +38,13 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
 
-  security-sla:
+  enforce-security-sla:
+    name: Enforce Security SLA
     runs-on: ubuntu-latest
+
+    permissions:
+      security-events: read
+
     steps:
       - uses: actions/checkout@v2
 
