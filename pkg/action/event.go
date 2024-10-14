@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 
-	"github.com/google/go-github/v55/github"
+	"github.com/google/go-github/v66/github"
 )
 
 type Event interface{}

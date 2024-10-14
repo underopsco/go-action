@@ -7,7 +7,12 @@ import (
 	"log/slog"
 	"os"
 	"strings"
+
+	"github.com/google/go-github/v66/github"
 )
+
+// Deprecated: use github.NewClient(nil).WithAuthToken(Context.Token) instead
+var REST = github.NewClient(nil).WithAuthToken(Context.Token)
 
 type Action interface {
 	Run() error
