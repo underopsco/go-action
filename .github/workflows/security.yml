@@ -43,4 +43,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - id: security-sla
-        uses: underops/enforce-security-sla-action@main
+        uses: underopsco/enforce-security-sla-action@main
