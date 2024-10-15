@@ -9,7 +9,7 @@ jobs:
   hello-world:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - id: hello-world
         uses: ./examples/hello_world
@@ -21,7 +21,7 @@ jobs:
   hello-world-bind:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - id: hello-world
         uses: ./examples/hello_world_bind
